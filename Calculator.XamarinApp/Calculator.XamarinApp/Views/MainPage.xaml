@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.XamarinApp.Views.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonSize" TargetType="Button">
+                <Setter Property="WidthRequest" Value="75"></Setter>
+                <Setter Property="HeightRequest" Value="70"></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="BackgroundColor" Value="#333333"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="FontSize" Value="30"></Setter>
+                <Setter Property="Margin" Value="0,0,15,0"></Setter>
+            </Style>
+        </ResourceDictionary>
+        <ResourceDictionary>
+            <Style x:Key="HitoryDisplay" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+                <Setter Property="HorizontalOptions" Value="End"></Setter>
+                <Setter Property="TextColor" Value="#a5a5a5"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="#000000" x:Name="MainGrid">
+        <Grid Grid.Row="0"  Margin="0,0,0,80" >
+            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand">
+                <ScrollView VerticalScrollBarVisibility="Never" Margin="0,0,10,0">
+                    <StackLayout>
+                        <Button Text="8/2" TextColor="Transparent" Style="{StaticResource HitoryDisplay}"></Button>
+                        <Button Text="8/2" TextColor="Transparent" Style="{StaticResource HitoryDisplay}"></Button>
+                        <Button Text="8/2" TextColor="Transparent" Style="{StaticResource HitoryDisplay}"></Button>
+                        <Button Text="{Binding Display3}" Clicked="Button_Clicked_Display3" Style="{StaticResource HitoryDisplay}"></Button>
+                        <Button Text="{Binding Display2}" Clicked="Button_Clicked_Display2" Style="{StaticResource HitoryDisplay}"></Button>
+                        <Button Text="{Binding Display1}" Clicked="Button_Clicked_Display1" Style="{StaticResource HitoryDisplay}"></Button>
+                        <Button Text="{Binding Display0}" Clicked="Button_Clicked_Display0" Style="{StaticResource HitoryDisplay}"></Button>
+                    </StackLayout>
+                </ScrollView>
+                <Label TextColor="#ffffff" Text="{Binding Display}" Margin="0,0,20,0" FontSize="48" HorizontalTextAlignment="End"></Label>
+            </StackLayout>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,-80,0,0" >
+            <StackLayout Orientation="Vertical" >
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Margin="15,0,15,10">
+
+                        <Button Text="AC"
+                                TextColor="Black"
+                                BackgroundColor="#a5a5a5"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_AC"></Button>
+                        <Button Text="C"
+                                FontSize="28"
+                                TextColor="Black"
+                                BackgroundColor="#a5a5a5"
+                                Margin="0,0,0,0"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Delete"></Button>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Text="^"
+                                TextColor="Black"
+                                BackgroundColor="#a5a5a5"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Pow"></Button>
+                        <Button Text="/" 
+                                BackgroundColor="#f1a34c"
+                                Margin="0,0,0,0"   
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Div"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"  >
+                    <StackLayout Orientation="Horizontal"  Margin="15,0,15,10">
+                        <Button Text="7" 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_7"></Button>
+                        <Button Text="8" 
+                                Margin="0,0,0,0" 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_8"></Button>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Text="9" 
+                            Style="{StaticResource ButtonSize}"
+                            Clicked="Button_Clicked_9"></Button>
+                        <Button Text="X" 
+                                BackgroundColor="#f1a34c"
+                                Margin="0,0,0,0" 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Mul"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal"  Margin="15,0,15,10">
+                        <Button  Text="4" 
+                            Style="{StaticResource ButtonSize}"
+                            Clicked="Button_Clicked_4">
+                        </Button>
+                        <Button Text="5" 
+                                Margin="0,0,0,0" 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_5"></Button>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Text="6" 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_6"></Button>
+                        <Button Text="-" 
+                            BackgroundColor="#f1a34c"    
+                            Margin="0,0,0,0"
+                            Style="{StaticResource ButtonSize}"
+                            Clicked="Button_Clicked_Sub"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout Orientation="Horizontal"  Margin="15,0,15,10">
+                        <Button  Text="1" 
+                                 Style="{StaticResource ButtonSize}"
+                                 Clicked="Button_Clicked_1"></Button>
+                        <Button Text="2" 
+                                Margin="0,0,0,0"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_2"></Button>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Text="3"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_3"></Button>
+                        <Button Text="+"
+                                BackgroundColor="#f1a34c"
+                                Margin="0,0,0,0" 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Sum"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="0,0,0,-3">
+                    <StackLayout Orientation="Horizontal"  Margin="15,0,15,10" WidthRequest="170">
+                        <Button Text="0" 
+                                WidthRequest="75"
+                                HeightRequest="70"
+                                CornerRadius="50"
+                                Padding="-100,0,0,0"
+                                HorizontalOptions="FillAndExpand"
+                                Margin="0,0,0,0"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_0">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal" Margin="0,0,0,10">
+                        <Button Text="," 
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Dot"></Button>
+                        <Button Text="="
+                                BackgroundColor="#f1a34c"
+                                Margin="0,0,0,0"
+                                Style="{StaticResource ButtonSize}"
+                                Clicked="Button_Clicked_Result"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
